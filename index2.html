@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Clock</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      height: 100vh;
+      background: black;
+      color: lime;
+      font-family: "Courier New", monospace;
+    }
+    #heding{
+        font-size: 30px;
+    }
+    #clock {
+      font-size: 60px;
+      padding: 20px;
+      border: 3px solid lime;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+    <h2 id="heding">Digital Clock</h2>
+  <div id="clock">00:00:00</div>
+
+  <script>
+    function updateClock(){
+        let now = new Date();
+        let hours = now.getHours();
+        let minutes = now.getMinutes();
+        let seconds = now.getSeconds();
+
+        hourse = (hours < 10 ? "0" : "") + hours;
+        minute = (minutes < 10 ? "0" : "") + minutes;
+        secocond = (seconds < 10 ? "0" : "") + seconds;
+
+        document.getElementById('clock').innerText = `${hourse}:${minute}:${secocond}`;
+    }
+
+
+
+    setInterval(updateClock, 1000);
+
+    updateClock();
+
+  </script>
+</body>
+</html>
